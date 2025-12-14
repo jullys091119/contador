@@ -12,6 +12,7 @@ const resetButton = document.querySelector("#reset")
 let isActiveMode = false
 function incrementarContador() {
     if (count < max) {
+         quitActiveButton()
         counter.textContent = ++count
         setTimeout(() => {
             removeClassTransition()
@@ -19,7 +20,7 @@ function incrementarContador() {
         addClassTransition();
 
     } else {
-        disabledButton()
+      setDisableButton()
     }
 }
 
@@ -30,11 +31,11 @@ function decrementarContador() {
     } else {
         count = newValue
         counter.textContent = count;
+        quitActiveButton()
         setTimeout(() => {
             removeClassTransition()
         }, 500)
         addClassTransition();
-        activeButton()
     }
 }
 
@@ -51,13 +52,13 @@ function removeClassTransition() {
     counter.classList.remove("animate__bounceOut");
 }
 
-function disabledButton() {
-
+function setDisableButton() {
     buttonUp.disabled = true
     buttonUp.style.opacity = 0.4
 }
 
-function activeButton() {
+function quitActiveButton() {
+    buttonUp.disabled = false
     buttonUp.style.opacity = 1
 }
 
