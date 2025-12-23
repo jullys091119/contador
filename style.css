@@ -10,10 +10,11 @@
 }
 
 .containerCounter {
-  width: 500px !important;
+  width: 100%;
   padding: 40px;
   background-color: rgb(234, 234, 234);
   border-radius: 12px;
+  max-width: 500px;
 }
 
 .counter {
